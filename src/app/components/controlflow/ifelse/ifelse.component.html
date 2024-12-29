@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col bg-secondary rounded">
+        <h1>control Flow</h1>
+        <h6>ifelse , if...</h6>
+    </div>
+</div>
+<div class="row pt-3">
+    @if(isDiv1visible){
+    <div class="col-3 p-3 bg-primary text-center">
+        <h4>Div-1</h4>
+    </div>
+    }
+
+    @if(isDiv2visible)
+    {
+    <div class="col-3 p-3  bg-success text-center">
+        <h4>Div-2</h4>
+    </div>
+    }
+    @else
+    {
+        <div class="col-3 p-3  bg-danger text-center">
+            <h4>Div-2</h4>
+        </div>
+    }
+
+    @if(num1 === num2){
+    <div  class="col-3 p-3 bg-warning text-center">
+        <h4>Div-3</h4>
+    </div>
+    }
+
+    @if(mystate == 'aa')
+    {
+        <div class="col-3 p-3  bg-danger text-center">
+            <h4>Div-4 {{mystate}}</h4>
+        </div>
+    }
+    @else if(mystate == 'bb')
+    {
+        <div class="col-3 p-3  bg-danger text-center">
+            <h4>Div-4 {{mystate}}</h4>
+        </div>
+    }
+    @else if(mystate == 'cc')
+    {
+        <div class="col-3 p-3  bg-danger text-center">
+            <h4>Div-4 {{mystate}}</h4>
+        </div>
+    }
+    @else
+    {
+        <div *ngIf="mystate == ''" class="col-3 p-3  bg-danger text-center">
+            <h4>Div-4 Blank</h4>
+        </div>
+    }
+
+</div>
+<div class="row pt-3">
+    <div class="col-3 text-center">
+        <button class="btn btn-danger" (click)="hideDiv1()">Hide</button>
+        <button class="btn btn-primary mx-2" (click)="showDiv1()">Show</button>
+    </div>
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="toggleDiv2()">Toggle</button>
+    </div>
+    <div class="col-3">
+        <div style="display: flex;align-items: center;">
+            <input type="text" [(ngModel)]="num1" class="width-20" placeholder="num 1">
+            <input type="text" [(ngModel)]="num2" class="width-20" placeholder="num 2">
+        </div>
+    </div>
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="ischeck">
+        <select [(ngModel)]="mystate">
+            <option></option>
+            <option>aa</option>
+            <option>bb</option>
+            <option>cc</option>
+        </select>
+    </div>
+</div>

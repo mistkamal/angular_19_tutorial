@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-4">
+        one way -from ts to html
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <div class="row">
+            <div class="col-4 bg-success">
+                <!-- Interpolation -->
+                <h1>{{courseName}}</h1>
+                <div>{{courseName}}</div>
+                <input type="text" value={{courseName}} placeholder="EnterText">
+                <input type={{inputtype}} value={{courseName}} placeholder="EnterText">
+            </div>
+            <div class="clo-4">
+                <!--Property Binding-->
+                <div [class]=mycalssname>Danger</div>
+                <input [type]=inputtype >
+                <input type="text" [value]=courseName >
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="row">
+            <div class="clo-4">
+                <!--Evenrt Binding-->
+                <button class="btn btn-success" (click)="showAlert('Hii Kamal Events')" >Press Button</button>
+                <span (click)="showAlert('Kamal Span')">click me</span>
+                <button class="btn btn-success" (click)="changecourseName()" >Chenage CourseName</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <!--Tow Way Data Binding-->
+        <input type="text" [(ngModel)]="courseName"> - {{courseName}}
+
+        <select [(ngModel)]="stateName">
+            <option>Gujarat</option>
+            <option>UP</option>
+            <option>MP</option>
+
+        </select>
+
+        <input type="checkbox" [(ngModel)]="isindian">
+    </div>
+    <div class="col-4">
+        <!--Signle-->
+        <h1>{{firstName()}}</h1>
+    </div>
+</div>

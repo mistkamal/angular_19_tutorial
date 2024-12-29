@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col bg-secondary rounded">
+        <h1>Attribute-directive</h1>
+        <h6>*ngif , *ngFor...</h6>
+        <button class="btn btn-primary" [routerLink]="['/structural-directive']">Go to Structural</button>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-3 p-3 text-center" [ngClass]="bgDiv1class">
+        <h4>Div-1</h4>
+    </div>
+    <div [ngClass]="isDiv2visible == true ? 'bg-success' : 'bg-danger'" class="col-3 p-3  bg-success text-center">
+        <h4>Div-2</h4>
+    </div>
+    <div [ngClass]="num1 == num2 ? 'bg-primary text-white' : 'bg-warning text-danger'" class="col-3 p-3 text-center">
+        <h4>Div-3</h4>
+    </div>
+    <!-- <div [ngClass]="ischeck ? 'bg-danger text-warning' : ''" class="col-3 p-3 text-center">
+        <h4>Div-4</h4>
+    </div> -->
+    <div [ngClass]="mystate == 'bb' ? 'bg-warning text-black' : ''" class="col-3 p-3 text-center">
+        <h4>Div-4</h4>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-3 text-center">
+        <button class="btn btn-danger" (click)="redDiv1()">Red</button>
+        <button class="btn btn-primary mx-2" (click)="greenDiv1()">Green</button>
+    </div>
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="toggleDiv2()">Toggle</button>
+    </div>
+    <div class="col-3">
+        <div style="display: flex;align-items: center;">
+            <input type="text" [(ngModel)]="num1" class="width-50" placeholder="num 1">
+            <input type="text" [(ngModel)]="num2" class="width-50" placeholder="num 2">
+        </div>
+    </div>
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="ischeck">
+        <select [(ngModel)]="mystate">
+            <option></option>
+            <option>aa</option>
+            <option>bb</option>
+            <option>cc</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Avtive</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let std1 of studentList">
+                    <td>{{std1.studentId + 1}}</td>
+                    <td >{{std1.name}}</td>
+                    <td>{{std1.mobie}}</td>
+                    <td [ngStyle]="{'background-color':std1.isactive ? 'red':'green'}">
+                        <span *ngIf="std1.isactive">Active</span>
+                        <span *ngIf="!std1.isactive">De-Active</span>
+                    </td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar" [ngStyle]="{'width': std1.marks+'%'}">{{std1.marks}}</div>
+                        </div>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div col-5>
+    <div [ngStyle]="Customstyle">
+My Name Is Kamal
+    </div>
+</div>

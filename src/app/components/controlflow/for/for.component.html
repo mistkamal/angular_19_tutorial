@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col bg-secondary rounded">
+        <h1>Structural-directive</h1>
+        <h6>for and switch</h6>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+         <input type="text" [(ngModel)]="daynumber">   
+    </div>
+    <div class="col-3">
+        Day Name Is :
+        @switch (daynumber)
+        {
+            @case('1'){<span>Monday</span>}
+            @case('2'){<span>Tuesday</span>}
+            @case('3'){<span>Wensday</span>}
+            @case('4'){<span>Thushday</span>}
+            @case('5'){<span>Friday</span>}
+            @case('6'){<span>Saturday</span>}
+            @case('7'){<span>Sunday</span>}
+            @default{<span>Wrong Entry</span>}
+
+        }
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-3">
+        <ul>
+            @for(item of city;track $index)
+            {
+            <li>{{item}}</li>
+            }
+        </ul>
+    </div>
+    <div class="col-3">
+        @for(item of city;track $index)
+        {
+        <div class="bg-danger">{{item}}</div>
+        }
+    </div>
+    <div class="col-3">
+        <select>
+            @for(item of city;track $index)
+            {
+            <option>{{item}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        <select>
+            @for(std of studentList;track $index)
+            {
+            <option [value]=std.studentId>{{std.name}}</option>
+            }
+        </select>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Avtive</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(std1 of studentList;track $index)
+                {
+                <tr>
+                    <td>{{std1.studentId + 1}}</td>
+                    <td>{{std1.name}}</td>
+                    <td>{{std1.mobie}}</td>
+                    <td>
+                        @if(std1.isactive)
+                            {<span>Active</span>}
+                        @else if(!std1.isactive)
+                            {<span>IsActive</span>}
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
