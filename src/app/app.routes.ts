@@ -6,6 +6,7 @@ import { StructuralDirectiveComponent } from './components/directive/structural-
 import { AttributeDirectiveComponent } from './components/directive/attribute-directive/attribute-directive.component';
 import { ForComponent } from './components/controlflow/for/for.component';
 import { IfelseComponent } from './components/controlflow/ifelse/ifelse.component';
+import { DefualtpipeComponent } from './components/Pipe/defualtpipe/defualtpipe.component';
 
 export const routes: Routes = [
     {
@@ -35,6 +36,10 @@ export const routes: Routes = [
     {
         path:'ifelse',
         component:IfelseComponent
+    },
+    {
+        path:'defualtpipe',
+        component:DefualtpipeComponent
     }
 
 ];
