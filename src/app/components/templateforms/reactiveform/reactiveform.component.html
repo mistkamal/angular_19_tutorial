@@ -1,0 +1,91 @@
+<div class="mt-2 pt-2 bg-secondary text-white rounded">
+    <h4>Reactive Form</h4>
+    <h3>Create Form And validation</h3>
+</div>
+
+<div class="row">
+    <div class="col-8">
+        <form class="row g-3" [formGroup]="studentform">
+            <div class="col-md-4">
+                <label class="form-label">FirstName</label>
+                <input type="text" formControlName="firstname" class="form-control">
+                <div class="text-danger">
+                    @if(studentform.controls['firstname'].touched && studentform.controls['firstname'].errors?.['required']){
+                        <span>this field is requird</span>
+                    }
+                    @else if(studentform.controls['firstname'].touched && studentform.controls['firstname'].errors?.['minlength']){
+                        <span>min length req</span>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">LastName</label>
+                <input type="text" class="form-control" formControlName="lastname">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">UserName</label>
+                <div class="input-group">
+                    <span class="input-group-text"><span>&#64;</span></span>
+                    <input type="text" class="form-control" formControlName="username">
+                    <div class="text-danger">
+                    @if(studentform.controls['username'].touched && studentform.controls['username'].errors?.['email']){
+                        <span>email pattern not matched</span>
+                    }
+                </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">City</label>
+                <input type="text" class="form-control" formControlName="city">
+                <div class="text-danger">
+                    @if(studentform.controls['city'].touched && studentform.controls['city'].errors?.['required']){
+                        <span>this field is requird</span>
+                    }
+                    @else if(studentform.controls['city'].touched && studentform.controls['city'].errors?.['minLength']){
+                        <span>min length req</span>
+                    }
+                    
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">State</label>
+                <select class="form-select" formControlName="state">
+                    <option>Gujarat</option>
+                    <option>Goa</option>
+                    <option>Up</option>
+                </select>
+                <div class="text-danger">
+                    @if(studentform.controls['state'].touched && studentform.controls['state'].errors?.['required']){
+                        <span>this field is requird</span>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Zipcode</label>
+                <input type="text" class="form-control" formControlName="zipcode">
+                <div class="text-danger">
+                    @if(studentform.controls['zipcode'].touched && studentform.controls['zipcode'].errors?.['required']){
+                        <span>this field is requird</span>
+                    }
+                </div>
+            </div>
+            <div class="col-12">
+                <input class="form-check-input" type="checkbox" formControlName="isacceptTerms" >
+                <label class="form-label">Agree to Term and condition</label>
+                <div class="text-danger">
+                @if (studentform.controls['isacceptTerms'].touched && studentform.controls['isacceptTerms'].errors?.['pattern']) {
+                    <span>zipcode not matched</span>
+                }
+            </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-secondary" type="submit" (click)="reset()">Reset</button>
+                
+                <button class="btn btn-primary mx-2"  type="submit" (click)="onsubmit()" [disabled]="studentform.invalid">Submit form</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-4">
+        {{formvalue | json}}
+    </div>
+</div>
