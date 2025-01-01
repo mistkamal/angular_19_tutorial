@@ -7,6 +7,7 @@ import { AttributeDirectiveComponent } from './components/directive/attribute-di
 import { ForComponent } from './components/controlflow/for/for.component';
 import { IfelseComponent } from './components/controlflow/ifelse/ifelse.component';
 import { DefualtpipeComponent } from './components/Pipe/defualtpipe/defualtpipe.component';
+import { TemplateformComponent } from './components/templateforms/templateform/templateform.component';
 
 export const routes: Routes = [
     {
@@ -40,6 +41,10 @@ export const routes: Routes = [
     {
         path:'defualtpipe',
         component:DefualtpipeComponent
+    },
+    {
+        path:'templateform',
+        component:TemplateformComponent
     }
 
 ];
