@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DepartmentService } from '../../../service/department.service';
+import { AlertComponent } from '../../../reusableComponent/alert/alert.component';
+import { MybuttonComponent } from '../../../reusableComponent/mybutton/mybutton.component';
 
 @Component({
   selector: 'app-post-api',
-  imports: [FormsModule],
+  imports: [FormsModule,AlertComponent,MybuttonComponent],
   templateUrl: './post-api.component.html',
   styleUrl: './post-api.component.css'
 })
@@ -18,13 +21,29 @@ export class PostApiComponent implements OnInit {
   };
 
   http = inject(HttpClient);
+  constructor(private deptServ:DepartmentService){}
+
   ngOnInit(): void {
     this.getdepartment();
   };
 
+  // onSave() {
+  //   debugger
+  //   this.http.post("https://projectapi.gerasim.in/api/Complaint/AddNewDepartment", this.depatObj).subscribe((res: any) => {
+  //     debugger
+  //     if (res.result) {
+  //       alert('department add succesfull');
+  //       this.getdepartment();
+  //     }
+  //     else {
+  //       alert(res.message);
+  //     }
+  //   })
+  // };
+
   onSave() {
     debugger
-    this.http.post("https://projectapi.gerasim.in/api/Complaint/AddNewDepartment", this.depatObj).subscribe((res: any) => {
+    this.deptServ.saveNewDept(this.depatObj).subscribe((res: any) => {
       debugger
       if (res.result) {
         alert('department add succesfull');
@@ -36,8 +55,16 @@ export class PostApiComponent implements OnInit {
     })
   };
 
+  // getdepartment() {
+  //   this.http.get("https://projectapi.gerasim.in/api/Complaint/GetParentDepartment").subscribe((res: any) => {
+  //     this.departmentlist = res.data;
+  //   })
+  // };
+
   getdepartment() {
-    this.http.get("https://projectapi.gerasim.in/api/Complaint/GetParentDepartment").subscribe((res: any) => {
+    debugger
+    this.deptServ.getAllDep().subscribe((res: any) => {
+      debugger
       this.departmentlist = res.data;
     })
   };
@@ -46,9 +73,26 @@ export class PostApiComponent implements OnInit {
     this.depatObj = data;
   };
 
+  getData(data:any){
+    debugger;
+  }
+
+  // onUpdate(data: any) {
+  //   this.depatObj = data;
+  //   this.http.put("https://projectapi.gerasim.in/api/Complaint/UpdateDepartment", data).subscribe((res: any) => {
+  //     if (res.result) {
+  //       alert('department Update succesfull');
+  //       this.getdepartment();
+  //     }
+  //     else {
+  //       alert(res.message);
+  //     }
+  //   })
+  // };
+
   onUpdate(data: any) {
     this.depatObj = data;
-    this.http.put("", data).subscribe((res: any) => {
+    this.deptServ.UpdateDept(data).subscribe((res: any) => {
       if (res.result) {
         alert('department Update succesfull');
         this.getdepartment();
@@ -59,10 +103,25 @@ export class PostApiComponent implements OnInit {
     })
   };
 
+  // onDelete(myid: number) {
+  //   const isdelete = confirm("are you sure to delete");
+  //   if (isdelete) {
+  //     this.http.delete("https://projectapi.gerasim.in/api/Complaint/DeletedepartmentBydepartmentId" + myid).subscribe((res: any) => {
+  //       if (res.result) {
+  //         alert('department Deleted succesfull');
+  //         this.getdepartment();
+  //       }
+  //       else {
+  //         alert(res.message);
+  //       }
+  //     })
+  //   }
+  // }
+
   onDelete(myid: number) {
     const isdelete = confirm("are you sure to delete");
     if (isdelete) {
-      this.http.delete("https://projectapi.gerasim.in/api/Complaint/DeletedepartmentBydepartmentId" + myid).subscribe((res: any) => {
+      this.deptServ.DeleteDept(myid).subscribe((res: any) => {
         if (res.result) {
           alert('department Deleted succesfull');
           this.getdepartment();
@@ -72,6 +131,7 @@ export class PostApiComponent implements OnInit {
         }
       })
     }
-
   }
+
+
 }
