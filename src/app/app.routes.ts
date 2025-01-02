@@ -8,6 +8,9 @@ import { ForComponent } from './components/controlflow/for/for.component';
 import { IfelseComponent } from './components/controlflow/ifelse/ifelse.component';
 import { DefualtpipeComponent } from './components/Pipe/defualtpipe/defualtpipe.component';
 import { TemplateformComponent } from './components/templateforms/templateform/templateform.component';
+import { ReactiveformComponent } from './components/templateforms/reactiveform/reactiveform.component';
+import { GetApiComponent } from './components/apiIntegration/get-api/get-api.component';
+import { PostApiComponent } from './components/apiIntegration/post-api/post-api.component';
 
 export const routes: Routes = [
     {
@@ -45,6 +48,20 @@ export const routes: Routes = [
     {
         path:'templateform',
         component:TemplateformComponent
+    },
+    {
+        path:'reactiveform',
+        component:ReactiveformComponent
+    }
+    ,
+    {
+        path:'getapi',
+        component:GetApiComponent
+    }
+    ,
+    {
+        path:'postapi',
+        component:PostApiComponent
     }
 
 ];
