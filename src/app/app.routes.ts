@@ -16,6 +16,8 @@ import { NgContainerComponent } from './components/directive/ng-container/ng-con
 import { ViewchildComponent } from './components/decorators/viewchild/viewchild.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { authGuard } from './service/auth.guard';
+import { SignalComponent } from './components/signal/signal.component';
 
 export const routes: Routes = [
     //defualt rout
@@ -38,7 +40,8 @@ export const routes: Routes = [
             },
             {
                 path: 'data-binding',
-                component: DataBindingComponent
+                component: DataBindingComponent,
+                canActivate:[authGuard]
             },
             {
                 path: 'emp-list',
@@ -93,6 +96,10 @@ export const routes: Routes = [
             {
                 path: 'viewChild',
                 component: ViewchildComponent
+            },
+            {
+                path: 'signal',
+                component: SignalComponent
             }
         ]
     }

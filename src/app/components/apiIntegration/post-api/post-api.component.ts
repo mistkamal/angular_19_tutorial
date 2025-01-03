@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { DepartmentService } from '../../../service/department.service';
 import { AlertComponent } from '../../../reusableComponent/alert/alert.component';
 import { MybuttonComponent } from '../../../reusableComponent/mybutton/mybutton.component';
+import { Department, IDepartmentList } from '../../../model/class/Customer';
 
 @Component({
   selector: 'app-post-api',
@@ -13,12 +14,8 @@ import { MybuttonComponent } from '../../../reusableComponent/mybutton/mybutton.
 })
 export class PostApiComponent implements OnInit {
 
-  departmentlist: any[] = [];
-  depatObj: any = {
-    "departmentId": 0,
-    "departmentName": "",
-    "departmentLogo": ""
-  };
+  departmentlist: IDepartmentList[] = [];
+  depatObj: Department = new Department();
 
   http = inject(HttpClient);
   constructor(private deptServ:DepartmentService){}

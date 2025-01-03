@@ -11,10 +11,10 @@
       <div class="text-danger">
         @if((fname.touched || fname.dirty) && fname.errors?.['required'])
         {
-            <span>This is Required</span>
+            <span>{{validationmessage.REQUIRED}}</span>
         }
         @else if((fname.touched || fname.dirty) && fname.errors?.['minlength']){
-            <span>min length Required</span>
+            <span>{{validationmessage.MIN_LENGTH}}</span>
         }
       </div>
       <div class="valid-feedback">

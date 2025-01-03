@@ -8,6 +8,13 @@
     <div class="col-3">
         <select class="form-select">
             @for (item of userlist; track $index) {
+                <option> {{item.email}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        <select class="form-select">
+            @for (item of customerlist; track $index) {
                 <option> {{item.name}}</option>
             }
         </select>
