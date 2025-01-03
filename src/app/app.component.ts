@@ -6,7 +6,7 @@ import { AttributeDirectiveComponent } from './components/directive/attribute-di
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,RouterLink],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

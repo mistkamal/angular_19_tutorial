@@ -5,9 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DepartmentService {
-
   constructor(private http: HttpClient) {
-
   };
 
   getAllDep() {

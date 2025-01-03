@@ -10,4 +10,7 @@ import { Component, Input } from '@angular/core';
 export class AlertComponent {
 @Input() message:string='';
 @Input() alertType:string='';
+
+@Input() AlertMode:string = 'Kamal Mode On';
+
 }

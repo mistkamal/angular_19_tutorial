@@ -6,62 +6,95 @@ import { StructuralDirectiveComponent } from './components/directive/structural-
 import { AttributeDirectiveComponent } from './components/directive/attribute-directive/attribute-directive.component';
 import { ForComponent } from './components/controlflow/for/for.component';
 import { IfelseComponent } from './components/controlflow/ifelse/ifelse.component';
-import { DefualtpipeComponent } from './components/pipe/defualtpipe/defualtpipe.component';
+import { DefualtpipeComponent } from './components/Pipe/defualtpipe/defualtpipe.component';
 import { TemplateformComponent } from './components/templateforms/templateform/templateform.component';
 import { ReactiveformComponent } from './components/templateforms/reactiveform/reactiveform.component';
 import { GetApiComponent } from './components/apiIntegration/get-api/get-api.component';
 import { PostApiComponent } from './components/apiIntegration/post-api/post-api.component';
+import { NgTemplateComponent } from './components/directive/ng-template/ng-template.component';
+import { NgContainerComponent } from './components/directive/ng-container/ng-container.component';
+import { ViewchildComponent } from './components/decorators/viewchild/viewchild.component';
+import { LoginComponent } from './components/login/login.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 export const routes: Routes = [
+    //defualt rout
     {
-        path:'add-emp',
-        component:AddEmployeeComponent
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
     },
     {
-        path:'data-binding',
-        component:DataBindingComponent
+        path: 'login',
+        component: LoginComponent
     },
     {
-        path:'emp-list',
-        component:EmployeelistComponent
-    },
-    {
-        path:'structural-directive',
-        component:StructuralDirectiveComponent
-    },
-    {
-        path:'attribute-directive',
-        component:AttributeDirectiveComponent
-    },
-    {
-        path:'for',
-        component:ForComponent
-    },
-    {
-        path:'ifelse',
-        component:IfelseComponent
-    },
-    {
-        path:'defualtpipe',
-        component:DefualtpipeComponent
-    },
-    {
-        path:'templateform',
-        component:TemplateformComponent
-    },
-    {
-        path:'reactiveform',
-        component:ReactiveformComponent
-    }
-    ,
-    {
-        path:'getapi',
-        component:GetApiComponent
-    }
-    ,
-    {
-        path:'postapi',
-        component:PostApiComponent
+        path: '',
+        component: LayoutComponent,
+        children: [
+            {
+                path: 'add-emp',
+                component: AddEmployeeComponent
+            },
+            {
+                path: 'data-binding',
+                component: DataBindingComponent
+            },
+            {
+                path: 'emp-list',
+                component: EmployeelistComponent
+            },
+            {
+                path: 'structural-directive',
+                component: StructuralDirectiveComponent
+            },
+            {
+                path: 'attribute-directive',
+                component: AttributeDirectiveComponent
+            },
+            {
+                path: 'for',
+                component: ForComponent
+            },
+            {
+                path: 'ifelse',
+                component: IfelseComponent
+            },
+            {
+                path: 'defualtpipe',
+                component: DefualtpipeComponent
+            },
+            {
+                path: 'templateform',
+                component: TemplateformComponent
+            },
+            {
+                path: 'reactiveform',
+                component: ReactiveformComponent
+            }
+            ,
+            {
+                path: 'getapi',
+                component: GetApiComponent
+            }
+            ,
+            {
+                path: 'postapi',
+                component: PostApiComponent
+            },
+            {
+                path: 'ngtempalte',
+                component: NgTemplateComponent
+            },
+            {
+                path: 'ngcontainer',
+                component: NgContainerComponent
+            },
+            {
+                path: 'viewChild',
+                component: ViewchildComponent
+            }
+        ]
     }
 
 ];

@@ -1,0 +1,69 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h1>ng-container</h1>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <ng-container *ngIf="isvisiblecontainer">
+            <p>this is from ng conatiner</p>
+        </ng-container>
+    </div>
+    <div class="col-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>username</th>
+                    <th>email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="isapi">
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            <div class="spinner-grow text-muted"></div>
+                            <div class="spinner-grow text-primary"></div>
+                            <div class="spinner-grow text-success"></div>
+                            <div class="spinner-grow text-info"></div>
+                            <div class="spinner-grow text-warning"></div>
+                            <div class="spinner-grow text-danger"></div>
+                            <div class="spinner-grow text-secondary"></div>
+                            <div class="spinner-grow text-dark"></div>
+                            <div class="spinner-grow text-light"></div>
+                        </td>
+                    </tr>
+                </ng-container>
+                <ng-container *ngIf="!isapi">
+                    <tr *ngFor="let std1 of uselist;let srNo=index">
+                        <td>{{srNo + 1}}</td>
+                        <td>{{std1.name}}</td>
+                        <td>{{std1.username}}</td>
+                        <td>{{std1.email}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-4">
+        <ng-container *ngTemplateOutlet="mytem">
+
+        </ng-container>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <ng-container *ngIf="isvisiblecontainer">
+            <p>this is from ng conatiner</p>
+        </ng-container>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-primary" (click)="getuser()">Load User</button>
+    </div>
+    <div class="col-4"></div>
+</div>
+
+<ng-template #mytem>
+    <p>hi from new temp</p>
+</ng-template>
